@@ -6,12 +6,10 @@
 [![go test](https://github.com/dennis-tra/nebula/actions/workflows/pull_request_main.yml/badge.svg)](https://github.com/dennis-tra/nebula/actions/workflows/pull_request_main.yml)
 [![readme nebula](https://img.shields.io/badge/readme-Nebula-blueviolet)](README.md)
 [![GitHub license](https://img.shields.io/github/license/dennis-tra/nebula)](https://github.com/dennis-tra/nebula/blob/main/LICENSE)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdennis-tra%2Fnebula&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-A network agnostic peer crawler and monitor. Nebula starts with a set of bootstrap peers, 
-asks them for other peers in the network and recursively repeats the process until all
-peers in the network have been contacted. Originally, Nebula only supported DHT
-networks, but this restriction was lifted.
+Nebula is an agnostic network crawler. It starts with a set of bootstrap peers,
+asks them for other peers in the network and recursively repeats the process
+until all peers in the network have been contacted.
 
 Currently, Nebula supports the following networks:
 
@@ -27,22 +25,38 @@ Currently, Nebula supports the following networks:
 - [Pactus](https://pactus.org)
 - [Dria](https://dria.co/)
 - [Gnosis](https://www.gnosis.io/)
-- ... your network? Get in touch [team@probelab.io](team@probelab.io).
+- [Monero](https://www.getmonero.org/)
+- ... your network? Get in touch [team@probelab.io](mailto:team@probelab.io).
 
-You can run `nebula networks` to get a list of all supported networks
+> You can run `nebula networks` to get a list of all supported networks.
 
-Nebula supports the following storage backends: JSON, Postgres, ClickHouse
+Nebula supports the JSON, Postgres and ClickHouse storage backends. It powers
+many graphs on [probelab.io](https://probelab.io/networks) for most of the
+supported networks above. Check out the "Topology" sections for any of the
+networks to get an idea. Gnosis uses Nebula to source its Network metrics [here](https://metrics.gnosischain.com/).
 
+### Nebula Pro
+
+In addition to the open-source version, we offer **Nebula Pro** — a paid version with advanced features including:
+
+- **GossipSub Topic Tracking** — detailed tracking of GossipSub topic subscriptions across the network.
+- **Ethereum Handshake Analysis** — in-depth Ethereum protocol handshake data collection.
+- **Monero Network Crawling** — specialized peer discovery and network analysis for the Monero network.
+
+Going forward, new feature development will continue exclusively in Nebula Pro.
+The open-source version will remain available and maintained for existing functionality,
+but all new capabilities will be part of the Pro offering.
+
+For pricing and access to Nebula Pro, please reach out to [team@probelab.io](mailto:team@probelab.io).
+
+### Awards
 
 The crawler was:
 
 - 🏆 _awarded a prize in the [DI2F Workshop hackathon](https://research.protocol.ai/blog/2021/decentralising-the-internet-with-ipfs-and-filecoin-di2f-a-report-from-the-trenches/)._ 🏆
 - 🎓 _used for the ACM SigCOMM'22 paper [Design and Evaluation of IPFS: A Storage Layer for the Decentralized Web](https://research.protocol.ai/publications/design-and-evaluation-of-ipfs-a-storage-layer-for-the-decentralized-web/trautwein2022.pdf)_ 🎓
 
-Nebula powers:
 
-- 📊 _the weekly reports for the IPFS Amino DHT [here](https://github.com/probe-lab/network-measurements/tree/main/reports)!_ 📊
-- 🌐 _many graphs on [probelab.io](https://probelab.io) for most of the supported networks above_ 🌐
 
 You can find a demo on YouTube: [Nebula: A Network Agnostic DHT Crawler](https://www.youtube.com/watch?v=QDgvCBDqNMc) 📺
 
