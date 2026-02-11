@@ -448,7 +448,11 @@ func CrawlAction(c *cli.Context) error {
 
 		// finally, start the crawl
 		summary, runErr = eng.Run(ctx)
-
+	case string(config.NetworkMoneroMainnet):
+		log.Warnln("Monero network crawling is only available in the paid version of Nebula.")
+		log.Warnln("This feature includes specialized peer discovery and network analysis for the Monero network.")
+		log.Warnln("For licensing and access, please reach out to team@probelab.io.")
+		return nil
 	default:
 
 		addrInfos, err := cfg.BootstrapAddrInfos()

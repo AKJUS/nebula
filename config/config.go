@@ -53,6 +53,7 @@ const (
 	NetworkWakuStatus     Network = "WAKU_STATUS"
 	NetworkWakuTWN        Network = "WAKU_TWN"
 	NetworkGnosis         Network = "GNOSIS"
+	NetworkMoneroMainnet  Network = "MONERO_MAINNET"
 )
 
 func Networks() []Network {
@@ -82,6 +83,7 @@ func Networks() []Network {
 		NetworkWakuStatus,
 		NetworkWakuTWN,
 		NetworkGnosis,
+		NetworkMoneroMainnet,
 	}
 }
 
@@ -420,6 +422,9 @@ type Crawl struct {
 	// WakuClusterShards defines shard indices for Waku cluster operations.
 	WakuClusterShards *cli.IntSlice
 
+	// EnableGossipSubTopics defines whether to activate gossipsub topic tracking
+	EnableGossipSubTopics bool
+
 	// EnabledGossipSub defines whether to activate gossipsub PX crawling
 	EnableGossipSubPX bool
 }
@@ -694,6 +699,8 @@ func ConfigureNetwork(network string) (*cli.StringSlice, *cli.StringSlice, error
 	case NetworkWakuTWN:
 		bootstrapPeers = cli.NewStringSlice(BootstrapPeersWakuTWN...)
 		protocols = cli.NewStringSlice("d5waku")
+	case NetworkMoneroMainnet:
+		// no-op
 	default:
 		return nil, nil, fmt.Errorf("unknown network identifier: %s", network)
 	}
