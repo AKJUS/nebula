@@ -27,20 +27,21 @@ import (
 )
 
 var crawlConfig = &config.Crawl{
-	Root:              rootConfig,
-	CrawlWorkerCount:  1000,
-	WriteWorkerCount:  10,
-	CrawlLimit:        0,
-	PersistNeighbors:  false,
-	FilePathUdgerDB:   "",
-	Network:           string(config.NetworkIPFS),
-	BootstrapPeers:    cli.NewStringSlice(),
-	Protocols:         cli.NewStringSlice(string(kaddht.ProtocolDHT)),
-	AddrDialTypeStr:   "public",
-	KeepENR:           false,
-	CheckExposed:      false,
-	UDPRespTimeout:    3 * time.Second,
-	EnableGossipSubPX: false,
+	Root:                  rootConfig,
+	CrawlWorkerCount:      1000,
+	WriteWorkerCount:      10,
+	CrawlLimit:            0,
+	PersistNeighbors:      false,
+	FilePathUdgerDB:       "",
+	Network:               string(config.NetworkIPFS),
+	BootstrapPeers:        cli.NewStringSlice(),
+	Protocols:             cli.NewStringSlice(string(kaddht.ProtocolDHT)),
+	AddrDialTypeStr:       "public",
+	KeepENR:               false,
+	CheckExposed:          false,
+	UDPRespTimeout:        3 * time.Second,
+	EnableGossipSubTopics: false,
+	EnableGossipSubPX:     false,
 }
 
 // CrawlCommand contains the crawl sub-command configuration.
@@ -156,6 +157,13 @@ var CrawlCommand = &cli.Command{
 			Category:    flagCategoryNetwork,
 		},
 		&cli.BoolFlag{
+			Name:        "gossipsub-topics",
+			Usage:       "Whether to enable gossipsub topic tracking",
+			EnvVars:     []string{"NEBULA_CRAWL_GOSSIPSUB_TOPICS"},
+			Value:       crawlConfig.EnableGossipSubTopics,
+			Destination: &crawlConfig.EnableGossipSubTopics,
+		},
+		&cli.BoolFlag{
 			Name:        "gossipsub-px",
 			Usage:       "Whether to enable gossipsub peer exchange crawling",
 			EnvVars:     []string{"NEBULA_CRAWL_GOSSIPSUB_PX"},
@@ -216,6 +224,13 @@ func CrawlAction(c *cli.Context) error {
 	ctx := c.Context
 	cfg := crawlConfig
 	start := time.Now()
+
+	if cfg.EnableGossipSubTopics {
+		log.Warnln("GossipSub topic tracking is only available in the paid version of Nebula.")
+		log.Warnln("This feature enables detailed tracking and analysis of GossipSub topic subscriptions.")
+		log.Warnln("For licensing and access, please reach out to team@probelab.io.")
+		return nil
+	}
 
 	// initialize a new database client based on the given configuration.
 	// Options are Postgres, JSON, and noop (dry-run).
