@@ -35,19 +35,21 @@ many graphs on [probelab.io](https://probelab.io/networks) for most of the
 supported networks above. Check out the "Topology" sections for any of the
 networks to get an idea. Gnosis uses Nebula to source its Network metrics [here](https://metrics.gnosischain.com/).
 
-### Nebula Pro
+### Commercial Offering
 
-In addition to the open-source version, we offer **Nebula Pro** — a paid version with advanced features including:
+In addition to the open-source version, [ProbeLab](https://probelab.io/) maintains a commercial offering
+of Nebula which includes:
 
 - **GossipSub Topic Tracking** — detailed tracking of GossipSub topic subscriptions across the network.
 - **Ethereum Handshake Analysis** — in-depth Ethereum protocol handshake data collection.
-- **Monero Network Crawling** — specialized peer discovery and network analysis for the Monero network.
+- **Monero Network Crawling** — specialized peer discovery for the Monero network.
 
-Going forward, new feature development will continue exclusively in Nebula Pro.
-The open-source version will remain available and maintained for existing functionality,
-but all new capabilities will be part of the Pro offering.
+Going forward, new feature development will continue exclusively as part of the
+commercial offering. The open-source version will remain available and
+maintained for existing functionality, but all new capabilities will be part of
+the commercial offering.
 
-For pricing and access to Nebula Pro, please reach out to [team@probelab.io](mailto:team@probelab.io).
+For pricing and access, please reach out to [team@probelab.io](mailto:team@probelab.io).
 
 ### Awards
 
