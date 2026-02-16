@@ -42,7 +42,8 @@ of Nebula which includes:
 
 - **GossipSub Topic Tracking** — detailed tracking of GossipSub topic subscriptions across the network.
 - **Ethereum Handshake Analysis** — in-depth Ethereum protocol handshake data collection.
-- **Monero Network Crawling** — specialized peer discovery for the Monero network.
+- **Monero Network Crawling** — specialized peer discovery for the [Monero](https://www.getmonero.org/) network.
+- **Algorand Network Crawling** — specialized peer discovery for the [Algorand](https://algorand.co/) network.
 
 Going forward, new feature development will continue exclusively as part of the
 commercial offering. The open-source version will remain available and
